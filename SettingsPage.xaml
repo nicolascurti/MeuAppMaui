@@ -5,6 +5,16 @@
              Title="Configurações"
              BackgroundColor="#F4F8F5"
              Shell.NavBarIsVisible="False">
+    <ContentPage.Resources>
+        <Style x:Key="SettingsEntryStyle" TargetType="Entry">
+            <Setter Property="TextColor" Value="{StaticResource SettingsFieldText}" />
+            <Setter Property="BackgroundColor" Value="{StaticResource SettingsFieldBackground}" />
+            <Setter Property="PlaceholderColor" Value="{StaticResource SettingsFieldPlaceholder}" />
+            <Setter Property="FontFamily" Value="OpenSansRegular" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="MinimumHeightRequest" Value="44" />
+        </Style>
+    </ContentPage.Resources>
     <Grid RowDefinitions="*,Auto">
         <ScrollView Grid.Row="0">
             <VerticalStackLayout Padding="22,24,22,18" Spacing="18">
@@ -34,13 +44,17 @@
                         Padding="18" StrokeShape="RoundRectangle 20">
                     <VerticalStackLayout Spacing="12">
                         <Label Text="Contato (vCard)" FontSize="18" FontAttributes="Bold" TextColor="#073B2B" />
-                        <Entry x:Name="ContactNameEntry" Placeholder="Nome completo" MaxLength="100"
+                        <Entry x:Name="ContactNameEntry" Style="{StaticResource SettingsEntryStyle}"
+                               Placeholder="Nome completo" MaxLength="100"
                                ReturnType="Next" SemanticProperties.Description="Nome completo do contato" />
-                        <Entry x:Name="CompanyEntry" Placeholder="Empresa (opcional)" MaxLength="100"
+                        <Entry x:Name="CompanyEntry" Style="{StaticResource SettingsEntryStyle}"
+                               Placeholder="Empresa (opcional)" MaxLength="100"
                                ReturnType="Next" SemanticProperties.Description="Empresa do contato, opcional" />
-                        <Entry x:Name="ContactPhoneEntry" Placeholder="Telefone (opcional)" Keyboard="Telephone"
+                        <Entry x:Name="ContactPhoneEntry" Style="{StaticResource SettingsEntryStyle}"
+                               Placeholder="Telefone (opcional)" Keyboard="Telephone"
                                MaxLength="24" ReturnType="Next" SemanticProperties.Description="Telefone para o vCard" />
-                        <Entry x:Name="ContactEmailEntry" Placeholder="E-mail (opcional)" Keyboard="Email"
+                        <Entry x:Name="ContactEmailEntry" Style="{StaticResource SettingsEntryStyle}"
+                               Placeholder="E-mail (opcional)" Keyboard="Email"
                                MaxLength="254" ReturnType="Next" SemanticProperties.Description="E-mail para o vCard" />
                         <Label Text="Informe nome e ao menos um telefone ou e-mail para gerar o contato."
                                FontSize="12" TextColor="#71877C" />
@@ -51,7 +65,8 @@
                         Padding="18" StrokeShape="RoundRectangle 20">
                     <VerticalStackLayout Spacing="12">
                         <Label Text="WhatsApp" FontSize="18" FontAttributes="Bold" TextColor="#073B2B" />
-                        <Entry x:Name="WhatsAppEntry" Placeholder="+55 DDD e número" Keyboard="Telephone"
+                        <Entry x:Name="WhatsAppEntry" Style="{StaticResource SettingsEntryStyle}"
+                               Placeholder="+55 DDD e número" Keyboard="Telephone"
                                MaxLength="24" SemanticProperties.Description="Número do WhatsApp com código do país e DDD" />
                         <Label Text="Use de 8 a 15 dígitos, incluindo código do país."
                                FontSize="12" TextColor="#71877C" />
@@ -62,7 +77,8 @@
                         Padding="18" StrokeShape="RoundRectangle 20">
                     <VerticalStackLayout Spacing="12">
                         <Label Text="LinkedIn" FontSize="18" FontAttributes="Bold" TextColor="#073B2B" />
-                        <Entry x:Name="LinkedInEntry" Placeholder="https://www.linkedin.com/in/seu-perfil"
+                        <Entry x:Name="LinkedInEntry" Style="{StaticResource SettingsEntryStyle}"
+                               Placeholder="https://www.linkedin.com/in/seu-perfil"
                                Keyboard="Url" MaxLength="500"
                                SemanticProperties.Description="Endereço HTTPS do perfil no LinkedIn" />
                     </VerticalStackLayout>

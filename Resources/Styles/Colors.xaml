@@ -11,6 +11,9 @@
     <Color x:Key="Secondary">#29B77A</Color>
     <Color x:Key="SecondaryDarkText">#176B4B</Color>
     <Color x:Key="Tertiary">#E7F5EE</Color>
+    <Color x:Key="SettingsFieldBackground">#FFFFFF</Color>
+    <Color x:Key="SettingsFieldText">#073B2B</Color>
+    <Color x:Key="SettingsFieldPlaceholder">#527064</Color>
 
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>

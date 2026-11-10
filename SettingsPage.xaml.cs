@@ -42,6 +42,7 @@ public partial class SettingsPage : ContentPage
         {
             var title = new Entry
             {
+                Style = (Style)Resources["SettingsEntryStyle"],
                 Placeholder = $"Nome do link {index + 1}",
                 MaxLength = 60,
                 ReturnType = ReturnType.Next
@@ -50,6 +51,7 @@ public partial class SettingsPage : ContentPage
 
             var url = new Entry
             {
+                Style = (Style)Resources["SettingsEntryStyle"],
                 Placeholder = "https://exemplo.com",
                 Keyboard = Keyboard.Url,
                 MaxLength = 500,

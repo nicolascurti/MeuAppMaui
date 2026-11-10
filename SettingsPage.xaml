@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MeuAppMaui.SettingsPage"
+             Title="Configurações"
+             BackgroundColor="#F4F8F5"
+             Shell.NavBarIsVisible="False">
+    <Grid RowDefinitions="*,Auto">
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Padding="22,24,22,18" Spacing="18">
+                <Grid ColumnDefinitions="44,*" ColumnSpacing="12">
+                    <Button Text="‹"
+                            FontSize="30"
+                            Padding="0"
+                            HeightRequest="44"
+                            BackgroundColor="#E7F5EE"
+                            TextColor="#073B2B"
+                            CornerRadius="14"
+                            SemanticProperties.Description="Voltar para os QR Codes"
+                            Clicked="OnBackClicked" />
+                    <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                        <Label Text="Configurações"
+                               FontSize="24"
+                               FontAttributes="Bold"
+                               TextColor="#073B2B"
+                               SemanticProperties.HeadingLevel="Level1" />
+                        <Label Text="Seus dados ficam só neste dispositivo."
+                               FontSize="13"
+                               TextColor="#527064" />
+                    </VerticalStackLayout>
+                </Grid>
+
+                <Border BackgroundColor="White" Stroke="#DCE9E1" StrokeThickness="1"
+                        Padding="18" StrokeShape="RoundRectangle 20">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="Contato (vCard)" FontSize="18" FontAttributes="Bold" TextColor="#073B2B" />
+                        <Entry x:Name="ContactNameEntry" Placeholder="Nome completo" MaxLength="100"
+                               ReturnType="Next" SemanticProperties.Description="Nome completo do contato" />
+                        <Entry x:Name="CompanyEntry" Placeholder="Empresa (opcional)" MaxLength="100"
+                               ReturnType="Next" SemanticProperties.Description="Empresa do contato, opcional" />
+                        <Entry x:Name="ContactPhoneEntry" Placeholder="Telefone (opcional)" Keyboard="Telephone"
+                               MaxLength="24" ReturnType="Next" SemanticProperties.Description="Telefone para o vCard" />
+                        <Entry x:Name="ContactEmailEntry" Placeholder="E-mail (opcional)" Keyboard="Email"
+                               MaxLength="254" ReturnType="Next" SemanticProperties.Description="E-mail para o vCard" />
+                        <Label Text="Informe nome e ao menos um telefone ou e-mail para gerar o contato."
+                               FontSize="12" TextColor="#71877C" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border BackgroundColor="White" Stroke="#DCE9E1" StrokeThickness="1"
+                        Padding="18" StrokeShape="RoundRectangle 20">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="WhatsApp" FontSize="18" FontAttributes="Bold" TextColor="#073B2B" />
+                        <Entry x:Name="WhatsAppEntry" Placeholder="+55 DDD e número" Keyboard="Telephone"
+                               MaxLength="24" SemanticProperties.Description="Número do WhatsApp com código do país e DDD" />
+                        <Label Text="Use de 8 a 15 dígitos, incluindo código do país."
+                               FontSize="12" TextColor="#71877C" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border BackgroundColor="White" Stroke="#DCE9E1" StrokeThickness="1"
+                        Padding="18" StrokeShape="RoundRectangle 20">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="LinkedIn" FontSize="18" FontAttributes="Bold" TextColor="#073B2B" />
+                        <Entry x:Name="LinkedInEntry" Placeholder="https://www.linkedin.com/in/seu-perfil"
+                               Keyboard="Url" MaxLength="500"
+                               SemanticProperties.Description="Endereço HTTPS do perfil no LinkedIn" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border BackgroundColor="White" Stroke="#DCE9E1" StrokeThickness="1"
+                        Padding="18" StrokeShape="RoundRectangle 20">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="Links extras (até 5)" FontSize="18" FontAttributes="Bold" TextColor="#073B2B" />
+                        <Label Text="Adicione um nome e um endereço HTTPS para cada link."
+                               FontSize="13" TextColor="#527064" />
+                        <VerticalStackLayout x:Name="ExtraLinksContainer" Spacing="10" />
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <VerticalStackLayout Grid.Row="1" Spacing="8" Padding="20,8,20,18" BackgroundColor="#F4F8F5">
+            <Label x:Name="ValidationMessage"
+                   IsVisible="False"
+                   FontSize="13"
+                   TextColor="#A32D2D" />
+            <Button Text="Salvar configurações"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    HeightRequest="54"
+                    BackgroundColor="#073B2B"
+                    TextColor="White"
+                    CornerRadius="18"
+                    Clicked="OnSaveClicked" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

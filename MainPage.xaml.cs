@@ -90,6 +90,7 @@ public partial class MainPage : ContentPage
         CurrentTitle.Text = entry.Title;
         CurrentDescription.Text = entry.Description;
         QrCounter.Text = $"{selectedIndex + 1} de {entries.Count}";
+        SwipeHint.IsVisible = entries.Count > 1;
         QrImage.Source = QrCodeService.CreateImageSource(entry.Payload);
         SemanticProperties.SetDescription(QrImage, $"QR Code de {entry.Title}");
         PreviousButton.IsEnabled = selectedIndex > 0;
@@ -99,6 +100,27 @@ public partial class MainPage : ContentPage
     /// <summary>Exibe o QR Code anterior, quando houver.</summary>
     private void OnPreviousClicked(object? sender, EventArgs e)
     {
+        ShowPreviousQrCode();
+    }
+
+    /// <summary>Exibe o próximo QR Code, quando houver.</summary>
+    private void OnNextClicked(object? sender, EventArgs e)
+    {
+        ShowNextQrCode();
+    }
+
+    /// <summary>Move entre os QR Codes conforme a direção do gesto horizontal.</summary>
+    private void OnQrSwiped(object? sender, SwipedEventArgs e)
+    {
+        if (e.Direction == SwipeDirection.Left)
+            ShowNextQrCode();
+        else if (e.Direction == SwipeDirection.Right)
+            ShowPreviousQrCode();
+    }
+
+    /// <summary>Exibe o QR Code anterior, quando houver.</summary>
+    private void ShowPreviousQrCode()
+    {
         if (selectedIndex > 0)
         {
             selectedIndex--;
@@ -107,7 +129,7 @@ public partial class MainPage : ContentPage
     }
 
     /// <summary>Exibe o próximo QR Code, quando houver.</summary>
-    private void OnNextClicked(object? sender, EventArgs e)
+    private void ShowNextQrCode()
     {
         if (selectedIndex < entries.Count - 1)
         {

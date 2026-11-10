@@ -28,6 +28,10 @@
                 </Grid>
 
                 <VerticalStackLayout x:Name="QrContent" Spacing="18" IsVisible="False">
+                    <VerticalStackLayout.GestureRecognizers>
+                        <SwipeGestureRecognizer Direction="Left" Swiped="OnQrSwiped" />
+                        <SwipeGestureRecognizer Direction="Right" Swiped="OnQrSwiped" />
+                    </VerticalStackLayout.GestureRecognizers>
                     <VerticalStackLayout Spacing="5" HorizontalOptions="Center">
                         <Label x:Name="CurrentTitle"
                                Text="Contato"
@@ -86,6 +90,12 @@
                                 SemanticProperties.Description="Mostrar próximo QR Code"
                                 Clicked="OnNextClicked" />
                     </Grid>
+                    <Label x:Name="SwipeHint"
+                           Text="Deslize para alternar entre os QR Codes"
+                           FontSize="12"
+                           HorizontalTextAlignment="Center"
+                           TextColor="#71877C"
+                           IsVisible="False" />
                 </VerticalStackLayout>
 
                 <Border x:Name="EmptyState"
